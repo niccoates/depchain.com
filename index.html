@@ -104,7 +104,7 @@
                     </form>
                     <!-- Container for success message -->
                     <div id="success-message" style="display: none">
-                        <p>Thank you for joining the waitlist!</p>
+                        Thank you for joining the waitlist!
                     </div>
                 </div>
             </section>
@@ -132,17 +132,15 @@
                         });
 
                         if (response.ok) {
-                            // Hide the email input and button
+                            // Get the success message content
+                            const successMessage =
+                                document.getElementById(
+                                    "success-message",
+                                ).innerHTML;
+                            // Replace the entire waitlist section with the success message
                             document.getElementById(
-                                "email-input",
-                            ).style.display = "none";
-                            document.querySelector(
-                                'button[type="submit"]',
-                            ).style.display = "none";
-                            // Show the success message
-                            document.getElementById(
-                                "success-message",
-                            ).style.display = "block";
+                                "waitlist-section",
+                            ).innerHTML = successMessage;
                         } else {
                             console.error(
                                 "Form submission failed:",

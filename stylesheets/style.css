@@ -38,6 +38,12 @@ a {
     font-weight: 400;
 }
 
+#success-message {
+    text-align: left;
+    color: #28a745; /* Green for success */
+    margin: 0;
+}
+
 .container {
     width: 90%;
     max-width: 840px;
