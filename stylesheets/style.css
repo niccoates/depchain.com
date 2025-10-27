@@ -1,0 +1,164 @@
+@import url(https://fonts.bunny.net/css?family=gantari:300,400,600,700);
+
+:root {
+    --color-bg: #fafafa;
+    --color-text: #1d1d1d;
+    --color-text-alt: #27272a;
+    --font-family-base: "Gantari", sans-serif;
+    --font-size-base: 1.15rem;
+    --transition: 0.2s ease-in-out;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    height: 100%;
+    scroll-behavior: smooth;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    font-family: var(--font-family-base);
+    font-size: var(--font-size-base);
+    color: var(--color-text);
+    background: var(--color-bg);
+}
+
+a {
+    color: #3b82f6;
+    font-weight: 400;
+}
+
+.container {
+    width: 90%;
+    max-width: 840px;
+    margin: 0 auto;
+    border-left: 1px solid #e4e4e7;
+    border-right: 1px solid #e4e4e7;
+    padding: 1rem 3rem;
+}
+
+.logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-text);
+}
+
+.logo img {
+    height: 40px;
+    width: 40px;
+    vertical-align: middle;
+    margin-top: -2px;
+}
+
+#hero {
+    width: 100%;
+    border-top: 1px solid #e4e4e7;
+    border-bottom: 1px solid #e4e4e7;
+}
+
+#why {
+    width: 100%;
+    border-bottom: 1px solid #e4e4e7;
+}
+
+#waitlist {
+    width: 100%;
+    border-bottom: 1px solid #e4e4e7;
+}
+
+h1 {
+    font-size: clamp(2.25rem, 4vw, 3.5rem);
+    letter-spacing: -1.2px;
+    font-weight: 700;
+    margin: 3rem 0 1rem 0;
+    line-height: 1.1;
+    position: relative;
+    color: #18181b;
+    text-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.6),
+        0 -1px 0 rgba(0, 0, 0, 0.4);
+}
+
+h2 {
+    font-size: clamp(1.25rem, 4vw, 2.3rem);
+    letter-spacing: -1.2px;
+    font-weight: 700;
+    margin: 2rem 0 1rem 0;
+    position: relative;
+    color: #18181b;
+    text-shadow:
+        0 1px 0 rgba(255, 255, 255, 0.6),
+        0 -1px 0 rgba(0, 0, 0, 0.4);
+}
+
+p {
+    font-size: 1.2rem;
+    color: #52525b;
+    line-height: 1.7;
+    font-weight: 400;
+    margin: 0 0 1rem 0;
+}
+
+.subtitle {
+    font-size: 1.3rem;
+    font-weight: 700;
+}
+
+#hero p {
+    margin-bottom: 3rem;
+}
+
+#waitlist p {
+    margin-top: 2rem;
+}
+
+.signed {
+    font-size: 0.9rem;
+    font-weight: 700;
+    margin: -1px 0 3rem 0;
+}
+
+form {
+    width: 100%;
+    display: block;
+    padding-bottom: 2.5rem;
+}
+
+form input {
+    width: 70%;
+    font-size: 1rem;
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
+    background: #ffffff;
+    border: 1px solid #a1a1aa;
+    padding: 0.7rem 1rem;
+    outline: none;
+}
+
+form button {
+    font-size: 1rem;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+    padding: 0.7rem 1rem;
+    margin-left: -6px;
+    background: var(--color-text);
+    color: #ffffff;
+    border: 1px solid var(--color-text);
+}
+
+footer {
+    width: 100%;
+    border-bottom: 1px solid #e4e4e7;
+    font-size: 0.9rem;
+    color: #71717a;
+}
