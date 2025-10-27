@@ -78,24 +78,84 @@
                         first.
                     </p>
                     <form
-                        action="/waitlist"
+                        name="waitlist"
                         method="POST"
+                        data-netlify="true"
+                        data-netlify-honeypot="bot-field"
                         class="waitlist-form"
+                        id="waitlist-form"
                     >
+                        <!-- Hidden input for Netlify honeypot (spam prevention) -->
+                        <input type="hidden" name="bot-field" />
+                        <!-- Hidden input for form name -->
+                        <input
+                            type="hidden"
+                            name="form-name"
+                            value="waitlist"
+                        />
                         <input
                             type="email"
                             name="email"
                             placeholder="harry@acme.com"
                             required
+                            id="email-input"
                         />
                         <button type="submit">Join waitlist</button>
                     </form>
+                    <!-- Container for success message -->
+                    <div id="success-message" style="display: none">
+                        <p>Thank you for joining the waitlist!</p>
+                    </div>
                 </div>
             </section>
         </div>
         <footer>
             <div class="container">&copy; 2025 Drill Software Limited.</div>
         </footer>
+        <script>
+            document
+                .getElementById("waitlist-form")
+                .addEventListener("submit", async function (event) {
+                    event.preventDefault(); // Prevent default form submission (page reload)
+
+                    const form = event.target;
+                    const formData = new FormData(form);
+
+                    try {
+                        const response = await fetch("/", {
+                            method: "POST",
+                            headers: {
+                                "Content-Type":
+                                    "application/x-www-form-urlencoded",
+                            },
+                            body: new URLSearchParams(formData).toString(),
+                        });
+
+                        if (response.ok) {
+                            // Hide the email input and button
+                            document.getElementById(
+                                "email-input",
+                            ).style.display = "none";
+                            document.querySelector(
+                                'button[type="submit"]',
+                            ).style.display = "none";
+                            // Show the success message
+                            document.getElementById(
+                                "success-message",
+                            ).style.display = "block";
+                        } else {
+                            console.error(
+                                "Form submission failed:",
+                                response.status,
+                            );
+                            alert("Something went wrong. Please try again.");
+                        }
+                    } catch (error) {
+                        console.error("Error submitting form:", error);
+                        alert("An error occurred. Please try again later.");
+                    }
+                });
+        </script>
         <script
             async
             src="https://cdn.seline.com/seline.js"
